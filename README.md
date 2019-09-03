@@ -22,8 +22,16 @@ public class CsvParameterLayout extends AbstractCsvLayout {
   public static AbstractCsvLayout createLayout(
     
     @PluginConfiguration final Configuration config,
-    @
-    
+    @PluginAttribute(value = "format", defaultString = DEFAULT_FORMAT) final String format,
+    @PluginAttribute("delimiter") final Charset delimiter,
+    @PluginAttribute("escape") final Charset escape,
+    @PluginAttribute("quote") final Charset quote,
+    @PluginAttribute("quoteMode") final Charset quoteMode,
+    @PluginAttribute("nullString") final Charset nullString,
+    @PluginAttribute("recordSeparator") final Charset recordSeparator,
+    @PluginAttribute(value = "charset", defaultString = DEFAULT_CHARSET) final Charset charset,
+    @PluginAttribute("header") final Charset String header,
+    @PluginAttribute("footer") final Charset String footer), 
   {
     final CSVFormat csvFormat = createFormat(format, delimiter, escape, quote, quoteMode, nullString, recordSeparator);
     return new CsvParameterLayout(config, charset, csvFormat, header, footer);
